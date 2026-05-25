@@ -5,99 +5,90 @@ import java.math.BigDecimal;
 public class App {
 	public static void main(String[] args) {
 
-		// Crear un objeto Manzana sin especificar ninguna propiedad de la Manzana
-		// Se utiliza el constructor sin parametros
-
-		Manzana manzana1 = new Manzana();
-
 		/*
-		 * ¿Como imprimir en la consola el objeto refenreciado por la variable manzana1
+		 * El array es un identificador que hace referencia a una zona de memoria, a
+		 * diferencia de una variable que hace referencia a una sola ubicacion en la
+		 * memoria, y que puede contener elementos de un mismo tipo de datos. A los
+		 * elementos del array se puede acceder utilizando un indice numérico entero,
+		 * entre corchetes
 		 */
-		System.out.println("------- Imprimiendo manzana1 -------");
-		System.out.println(manzana1);
-
-		// Si quisiera crear un objeto Manzana y solamente quisiera especificar
-		// la variedad de la Manzana, me daría error porque yo no tengo un constructor
-		// que reciba un solo parametro
 
 		/*
-		 * Utilizando lombok no necesitamos tener todos los constructores definidos,
-		 * solamente el constructor sin parametros o por defecto y el constructor que
-		 * recibe todos los campos de la clase
+		 * ¿Como se declara un array actualmente? Por ejemplo, un array de String, El
+		 * identificador nombres es un array donde cada elemento del array es de tipo
+		 * String
 		 * 
-		 * Utilizando el PATRON BUILDER DE LOMBOK, es posible construir cualquier objeto
-		 * aunque no tengas su constructor explicitamente y tampoco estariamos obligados
-		 * a suministrar los campos o propiedades del objeto en un orden determinado
+		 * Ventajas: En lugar de crear una variable por cada elemento ahora solo tenemos
+		 * un nombre para todo el conjunto de elementos y es mucho más escalable porque
+		 * podremos tratar, 10, 20 0 un millon de elementos de la misma manera
+		 * 
+		 * si no existieran los array, entonces:
 		 */
 
-		// El Patron Builder NO fue inventado por lombok, pero lo ha mejorado bastante
+		String nombre1;
+		String nombre2;
+		;
+		;
+		String nombreX;
 
-		// El Patron Builder es patron factoria, es decir, creacional, que permite crear
-		// o instanciar objetos sin tener explicitamente su constructor
+		// con array
+		String[] nombres = { "Yodalis", "Marisol", "Youssef", };
 
-		Manzana manzana2 = Manzana.builder()
-				.variedad("Golden")
-				.build();
-		/*¿Como imprimir en la consola el objeto referenciado por la variable manzana1?*/
-		
-		//Manzana manzana2 = new Manzana("Golden");
-		System.out.println("------- Imprimiendo manzana2 -------");
-		System.out.println(manzana2);
+		System.out.println("Array original de nombres");
+		System.out.println(nombres[0]);
+		System.out.println(nombres[1]);
+		System.out.println(nombres[2]);
+
+		System.out.println("El array de nombres tiene " + nombres.length + " elementos");
 
 		/*
-		 * ¿Cómo comparar dos objetos Manzana para saber si son iguales o no? Vamos a
-		 * crear dos objetos Manzana para que sean de la misma variedad y precio
+		 * Tamaño fijo implica que no se pueden agregar mas elementos al array, pero si
+		 * se pueden modificar los elementos existentes nombres[3] = "Elida";
 		 */
-		
-		//Manzana manzana3 = new Manzana("reineta", new BigDecimal(2.0));
-		
-		Manzana manzana3 = Manzana.builder()
-				.variedad("Reineta")
-				.precio(new BigDecimal(2.0))
-				.build();
-				
-		//Manzana manzana4 = new Manzana("reineta", new BigDecimal(2.0));
 
-		Manzana manzana4 = Manzana.builder()
-				.variedad("Reineta")
-				.precio(new BigDecimal(2.0))
-				.build();
-		
-		
-		int x = 5;
-		int y = 5;
+		nombres[2] = "Elida";
+		System.out.println(nombres[2]);
+
+		int[] arrayNumerosEnteros = { 1, 2, 3, 4, 5 };
+
+		Manzana[] manzanas = {
+				Manzana.builder().color("Roja").sabor("Dulce").variedad("Red Delicious").size(7.5).peso(0.2)
+						.precio(new BigDecimal("0.50")).build(),
+				Manzana.builder().color("Verde").sabor("Acida").variedad("Granny Smith").size(6.0).peso(0.25)
+						.precio(new BigDecimal("0.60")).build(),
+				Manzana.builder().color("Amarilla").sabor("Dulce").variedad("Golden Delicious").size(8.0).peso(0.3)
+						.precio(new BigDecimal("0.55")).build()
+
+		};
+
+		System.out.println("El array de Manzana tiene ");
+		System.out.println(manzanas[0]);
+		System.out.println(manzanas[1]);
+		System.out.println(manzanas[2]);
 
 		/*
-		 * Si quiero comprobar si las variables x e y son iguales, podemos utilizar una
-		 * sentencia de Java que la tienen todos los lenguajes de programación,
-		 * denominada sentencia condicional if - else, que evalua una condición entre
-		 * parentesis y que si se cumple se ejecuta el grupo de sentencias que aparecen
-		 * en el bloque encerrado entre las llaves de apertura y cierre, y si no se
-		 * cumple la condicion se podra ejecutar la o las sentencias que estan en
-		 * siguiente bloque
+		 * Hasta el momento los arrays que hemos creado son de tamaño fijo, es decir, no
+		 * se pueden modificar una vez creados
+		 * 
+		 * Declarar arrays que sean modificables, es decir, que se le puedan agregar o
+		 * eliminar elementos o modificar los elementos existentes
 		 */
 
-		if (x == y) {
-			System.out.println("Las variables son iguales ");
-		} else {
-			System.out.println("El valor de las variables es diferente");
-		}
-		if (manzana3 == manzana4) {
-			System.out.println("Son iguales");
-		} else {
-			System.out.println("Son diferentes");
-		}
+		String[] nombres2 = new String[3];
+
 		/*
-		 * Para saber si el contenido de dos objetos es el mismo se utiliza el metodo
-		 * equals, porque el operador == lo que comprueba en el caso de objetos es si
-		 * dichos objetos estan en la misma ubicacion de la memoria
+		 * El array de nombres2 tiene 3 elementos, pero todos los elementos son null
+		 * porque no se les ha asignado valor aun. Con la sentencia anterior se ha
+		 * reservado espacio en la memoria para 3 elementos de tipo String. No sera
+		 * poible pasarse de la cantidad de elementos reservados para el array que en el
+		 * caso anterior es de 3
 		 */
 
-		if (manzana3.equals(manzana4))
-			System.out.println("El contenido de ambos objetos es el mismo");
-		else
-			System.out.println("El contenido de ambos objetos es diferente");
+		// Agregando elementos al array de nombres2
+
+		nombres2[0] = "Leyla";
+		nombres2[1] = "Miguel";
+		nombres2[2] = "Jonatan";
 
 	}
-
 }
