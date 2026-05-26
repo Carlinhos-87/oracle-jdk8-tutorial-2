@@ -107,18 +107,36 @@ public class App {
 		 * Por ultimo las sentencias break y continue
 		 */
 
-		/* La sentencia for clasica, se utiliza cuando se conoce a priori la cantidad
-		 * de veces que se van a ejecutar un conjunto de instrucciones. Tambien se puede 
-		 * utilizar para recorrer los elementos de un array*/
+		/*
+		 * La sentencia for clasica, se utiliza cuando se conoce a priori la cantidad de
+		 * veces que se van a ejecutar un conjunto de instrucciones. Tambien se puede
+		 * utilizar para recorrer los elementos de un array
+		 */
+
+		/*
+		 * Para imprimir o mostrar en la consola los elementos de un array, por ejemplo,
+		 * el array de nombres hay que recorrer los elementos del array
+		 */
 		
-		/*Para imprimir o mostrar en la consola los elementos de un array, por ejemplo,
-		 * el array de nombres hay que recorrer los elementos del array*/
+		/* Si intentaramos mostrar por la consola los elemetos del array nombres */
+
+		System.out.println("Intentando imprimir los elementos del array nombres");
+		System.out.println(nombres);
 		
-		System.out.println("Recorriendo el array de nombres con la sentencia for clasica");
+		/*La sentencia anterior solamente mostró por la consola la direcion de
+		 * memoria de la zona donde estan almacenados los elementos del array,
+		 * pero los elementos como tal no los ha mostrado, para mostrar los elementos
+		 * del array se necesita una sentencia de control de flujo que en bucle recorra 
+		 * todos los elementos del array de nombres, y podría ser la sentencia for
+		 * clásica en primer lugar y en segundo lugar la sentencia for mejorada*/
 		
-		for (int i = 0; i < nombres.length; i++) {
+		System.out.println("Recorriendo/Iterando los elementos del array de nombres "
+				+ "con una sentencia for clasica");
+
+		for (int i = 0; i <= nombres.length; i++) {
 			System.out.println(nombres[i]);
-			
+
+		/**/
 		}
 	}
 }
