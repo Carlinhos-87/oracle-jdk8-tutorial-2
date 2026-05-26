@@ -1,6 +1,7 @@
 package com.example;
 
 import java.math.BigDecimal;
+import java.util.Iterator;
 
 public class App {
 	public static void main(String[] args) {
@@ -90,5 +91,34 @@ public class App {
 		nombres2[1] = "Miguel";
 		nombres2[2] = "Jonatan";
 
+		/*
+		 * SENTENCIAS DE CONTROL DE FLUJO. En general permiten modificar el flujo de
+		 * ejecucion de un programa en dependencia del cumplimiento de una o varias
+		 * condiciones, aqui estarian las sentencias condicionales if - else y switch -
+		 * expression
+		 * 
+		 * Y por otra parte, pero como parte tambien de las sentencias de control de
+		 * flujo estarian las que permiten ejecutar en bucle un conjunto de sentencias
+		 * entre las que estarían
+		 * 
+		 * 1- sentencia for clasica 2- sentencia for mejorada 3- sentencia while 4-
+		 * sentencia do - while
+		 * 
+		 * Por ultimo las sentencias break y continue
+		 */
+
+		/* La sentencia for clasica, se utiliza cuando se conoce a priori la cantidad
+		 * de veces que se van a ejecutar un conjunto de instrucciones. Tambien se puede 
+		 * utilizar para recorrer los elementos de un array*/
+		
+		/*Para imprimir o mostrar en la consola los elementos de un array, por ejemplo,
+		 * el array de nombres hay que recorrer los elementos del array*/
+		
+		System.out.println("Recorriendo el array de nombres con la sentencia for clasica");
+		
+		for (int i = 0; i < nombres.length; i++) {
+			System.out.println(nombres[i]);
+			
+		}
 	}
 }
