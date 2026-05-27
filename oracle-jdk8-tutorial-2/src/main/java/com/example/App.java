@@ -135,8 +135,23 @@ public class App {
 
 		for (int i = 0; i <= nombres.length; i++) {
 			System.out.println(nombres[i]);
-
-		/**/
+			
+		System.out.println("La sentencia for ha concluido");
+			
+			/* OPERADOR DE AUTO INCREMENTO (++) Y DE AUTO DECREMENTO (--) */
+			
+			int ii = 0;
+			
+			++ii;
+			
+			ii++;
+			
+			/* Para comprobar la diferencia entre las dos instrucciones anteriores se 
+			 * puede utilizar una herramiento de linea de comandos llamado jshell y 
+			 * comprobaremos que el operador de autoincremento cuando esta solo, es lo 
+			 * mismo que este al principio que al final, que no es igual a cuando esta 
+			 * en una expresion */
+		
 		}
 	}
 }
