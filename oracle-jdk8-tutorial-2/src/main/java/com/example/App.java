@@ -1,7 +1,7 @@
 package com.example;
 
 import java.math.BigDecimal;
-import java.util.Iterator;
+
 
 public class App {
 	public static void main(String[] args) {
@@ -62,10 +62,11 @@ public class App {
 
 		};
 
-		System.out.println("El array de Manzana tiene ");
-		System.out.println(manzanas[0]);
-		System.out.println(manzanas[1]);
-		System.out.println(manzanas[2]);
+		/*
+		 * System.out.println("El array de Manzana tiene ");
+		 * System.out.println(manzanas[0]); System.out.println(manzanas[1]);
+		 * System.out.println(manzanas[2]);
+		 */
 
 		/*
 		 * Hasta el momento los arrays que hemos creado son de tamaño fijo, es decir, no
@@ -117,41 +118,84 @@ public class App {
 		 * Para imprimir o mostrar en la consola los elementos de un array, por ejemplo,
 		 * el array de nombres hay que recorrer los elementos del array
 		 */
-		
+
 		/* Si intentaramos mostrar por la consola los elemetos del array nombres */
 
 		System.out.println("Intentando imprimir los elementos del array nombres");
 		System.out.println(nombres);
-		
-		/*La sentencia anterior solamente mostró por la consola la direcion de
-		 * memoria de la zona donde estan almacenados los elementos del array,
-		 * pero los elementos como tal no los ha mostrado, para mostrar los elementos
-		 * del array se necesita una sentencia de control de flujo que en bucle recorra 
-		 * todos los elementos del array de nombres, y podría ser la sentencia for
-		 * clásica en primer lugar y en segundo lugar la sentencia for mejorada*/
-		
-		System.out.println("Recorriendo/Iterando los elementos del array de nombres "
-				+ "con una sentencia for clasica");
 
-		for (int i = 0; i <= nombres.length; i++) {
+		/*
+		 * La sentencia anterior solamente mostró por la consola la direcion de memoria
+		 * de la zona donde estan almacenados los elementos del array, pero los
+		 * elementos como tal no los ha mostrado, para mostrar los elementos del array
+		 * se necesita una sentencia de control de flujo que en bucle recorra todos los
+		 * elementos del array de nombres, y podría ser la sentencia for clásica en
+		 * primer lugar y en segundo lugar la sentencia for mejorada
+		 */
+
+		System.out
+				.println("Recorriendo/Iterando los elementos del array de nombres " + "con una sentencia for clasica");
+
+		for (int i = 0; i <= nombres.length - 1; i++) {
 			System.out.println(nombres[i]);
-			
+		}
+
 		System.out.println("La sentencia for ha concluido");
-			
-			/* OPERADOR DE AUTO INCREMENTO (++) Y DE AUTO DECREMENTO (--) */
-			
-			int ii = 0;
-			
-			++ii;
-			
-			ii++;
-			
-			/* Para comprobar la diferencia entre las dos instrucciones anteriores se 
-			 * puede utilizar una herramiento de linea de comandos llamado jshell y 
-			 * comprobaremos que el operador de autoincremento cuando esta solo, es lo 
-			 * mismo que este al principio que al final, que no es igual a cuando esta 
-			 * en una expresion */
+
+		/* OPERADOR DE AUTO INCREMENTO (++) Y DE AUTO DECREMENTO (--) */
+
+		int ii = 0;
+
+		++ii;
+
+		ii++;
+
+		/*
+		 * Para comprobar la diferencia entre las dos instrucciones anteriores se puede
+		 * utilizar una herramiento de linea de comandos llamado jshell y comprobaremos
+		 * que el operador de autoincremento cuando esta solo, es lo mismo que este al
+		 * principio que al final, que no es igual a cuando esta en una expresion
+		 */
+
+		/*
+		 * Ejemplo de creaccion de un array de numeros fraccionarios, tipo double, que
+		 * tiene parte entera y parte fraccionaria. Los valores del array se tienen que
+		 * generar de forma aleatoria y con números entre 0 y 100,
+		 * 
+		 * Sabemos que debemos de utilizar el metodo random() de la biblioteca Math,
+		 * pero no sabemos como hacer que genere números aleatorios entre 0 y 100.
+		 * 
+		 * Por tanto vamos a utilizar la herramienta jshell para averiguar como hacer
+		 * que se genere los numeros aleatorios que quedemos
+		 */
+
+		System.out.println("Array de numeros de tipo Double, generado de forma aleatoria ");
+
+		double[] arrayDeDoubles = new double[20];
+
+		System.out.println("Array original, con los valores por defecto ");
+		for (int i = 0; i <= arrayDeDoubles.length - 1; i++) {
+			System.out.println(arrayDeDoubles[i]);
 		
 		}
+		//Rellenando el array con valores generados aleatoriamente
+		for (int i = 0; i <= arrayDeDoubles.length - 1; i++) {
+			arrayDeDoubles[i] = Math.random() * 100 - 1; 
+		}
+		//Mostrando el array resultante
+		
+		for (int i = 0; i <= arrayDeDoubles.length - 1; i++) {
+			System.out.println(arrayDeDoubles[i]);
+		}
+		
+		/*Ejercicio 1 - Modificar el ejemplo anterior para que el array sea de 100 numeros
+		 * enteros generados aleatoriamente
+		 * 
+		 *  Sugerencia, hacer un commit previamente a ponerse con la solucion del ejercicio,
+		 *  para que puedas modificar el codigo sin que se pierda el codigo del ejemplo
+		 *  original*/
+		
+		
+		
 	}
 }
