@@ -1,7 +1,7 @@
 package com.example;
 
 import java.math.BigDecimal;
-
+import java.util.Iterator;
 
 public class App {
 	public static void main(String[] args) {
@@ -176,26 +176,115 @@ public class App {
 		System.out.println("Array original, con los valores por defecto ");
 		for (int i = 0; i <= arrayDeDoubles.length - 1; i++) {
 			System.out.println(arrayDeDoubles[i]);
-		
+
 		}
-		//Rellenando el array con valores generados aleatoriamente
+		// Rellenando el array con valores generados aleatoriamente
 		for (int i = 0; i <= arrayDeDoubles.length - 1; i++) {
-			arrayDeDoubles[i] = Math.random() * 100 - 1; 
+			arrayDeDoubles[i] = Math.random() * 100 - 1;
 		}
-		//Mostrando el array resultante
-		
+		// Mostrando el array resultante
+
 		for (int i = 0; i <= arrayDeDoubles.length - 1; i++) {
 			System.out.println(arrayDeDoubles[i]);
 		}
-		
-		/*Ejercicio 1 - Modificar el ejemplo anterior para que el array sea de 100 numeros
-		 * enteros generados aleatoriamente
+
+		/*
+		 * Ejercicio 1 - Modificar el ejemplo anterior para que el array sea de 100
+		 * numeros enteros generados aleatoriamente
 		 * 
-		 *  Sugerencia, hacer un commit previamente a ponerse con la solucion del ejercicio,
-		 *  para que puedas modificar el codigo sin que se pierda el codigo del ejemplo
-		 *  original*/
-		
-		
-		
+		 * Sugerencia, hacer un commit previamente a ponerse con la solucion del
+		 * ejercicio, para que puedas modificar el codigo sin que se pierda el codigo
+		 * del ejemplo original
+		 */
+
+		// Rellenando el array con valores generados aleatoriamente enteros
+		for (int i = 0; i <= arrayDeDoubles.length - 1; i++) {
+			arrayDeDoubles[i] = (int) (Math.random() * 100 - 1);
+		}
+		// Mostrando el array resultante
+
+		for (int i = 0; i <= arrayDeDoubles.length - 1; i++) {
+			System.out.println(arrayDeDoubles[i]);
+		}
+
+		// Solucion ejercicio 1 correcto:
+		System.out.println("----- Solucion ejercicio Uno -----");
+		long[] numerosEnteros = new long[100];
+
+		System.out.println("Array original de numeros enteros: ");
+
+		for (int i = 0; i <= numerosEnteros.length - 1; i++) {
+			System.out.println(numerosEnteros[i]);
+		}
+
+		System.out.println("Array resultante, generado aleatoriamente");
+
+		for (int i = 0; i <= numerosEnteros.length - 1; i++) {
+			numerosEnteros[i] = Math.round(Math.random() * 100 - 1);
+		}
+
+		for (int i = 0; i <= numerosEnteros.length - 1; i++) {
+			System.out.println(numerosEnteros[i]);
+		}
+
+		/*
+		 * Sentencia FOR mejorada
+		 * 
+		 * Se recomienda su uso siempre que no haya que trabajar con el indice o los
+		 * indices de un array
+		 */
+
+		System.out.println("----- Sentencia FOR mejorada (mal llamada for - each) -----");
+
+		for (long numeroEntero : numerosEnteros) {
+			System.out.println(numeroEntero);
+
+		}
+
+		/*
+		 * Ejercicio 2, recorrer el array numeros enteros y solamente mostrar aquellos
+		 * elementos que son de indice par
+		 * 
+		 * ¿Cuando un valor es par? Cuando el resultado del residuo de la division es
+		 * igual a cero
+		 * 
+		 * El residuo de la division la da el operador %, o tambien mod en una
+		 * calculadora (modulo)
+		 */
+
+		// Solucion al ejercicio 2, usando una sentencia for clasica
+		System.out.println("----- Ejercicio 2 -----");
+
+		for (int i = 0; i <= numerosEnteros.length - 1; i++) {
+
+			if (i % 2 == 0) {
+				System.out.println("indice:" + i + ", numero " + numerosEnteros[i]);
+			}
+		}
+
+		/*
+		 * Ejercicio 3, recorrer el array de numeros enteros y mostrar solamente los
+		 * elementos impares
+		 */
+		System.out.println("----- Ejercicio 3 -----");
+
+		for (long n : numerosEnteros) {
+
+			if (n % 2 != 0) {
+				System.out.println(n);
+			}
+		}
+		/*
+		 * Ejercicio 4, recorrer el array de numeros enteros y mostrar solamente los que
+		 * sean de indice impar
+		 */
+		System.out.println("----- Ejercicio 4 -----");
+
+		for (int i = 0; i <= numerosEnteros.length - 1; i++) {
+
+			if (i % 2 != 0) {
+				System.out.println("indice:" + i + ", numero " + numerosEnteros[i]);
+			}
+		}
 	}
 }
