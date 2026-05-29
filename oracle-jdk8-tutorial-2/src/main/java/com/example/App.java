@@ -1,7 +1,6 @@
 package com.example;
 
 import java.math.BigDecimal;
-import java.util.Iterator;
 
 public class App {
 	public static void main(String[] args) {
@@ -58,9 +57,15 @@ public class App {
 				Manzana.builder().color("Verde").sabor("Acida").variedad("Granny Smith").size(6.0).peso(0.25)
 						.precio(new BigDecimal("0.60")).build(),
 				Manzana.builder().color("Amarilla").sabor("Dulce").variedad("Golden Delicious").size(8.0).peso(0.3)
-						.precio(new BigDecimal("0.55")).build()
-
-		};
+						.precio(new BigDecimal("0.55")).build(),
+				Manzana.builder().color("Roja").sabor("Dulce").variedad("Red Delicious").size(7.5).peso(0.2)
+						.precio(new BigDecimal("0.50")).build(),
+				Manzana.builder().color("Verde").sabor("Dulce").variedad("Granny Smith").size(6.0).peso(0.25)
+						.precio(new BigDecimal("0.60")).build(),
+				Manzana.builder().color("Amarilla").sabor("Dulce").variedad("Golden Delicious").size(8.0).peso(0.3)
+						.precio(new BigDecimal("0.55")).build(),
+				Manzana.builder().color("Roja").sabor("Dulce").variedad("Red Delicious").size(7.5).peso(0.2)
+						.precio(new BigDecimal("0.50")).build(), };
 
 		/*
 		 * System.out.println("El array de Manzana tiene ");
@@ -286,5 +291,150 @@ public class App {
 				System.out.println("indice:" + i + ", numero " + numerosEnteros[i]);
 			}
 		}
+		/*---------- SENTENCIAS DE ASIGNACIÓN COMPUESTAS ---------*/
+
+		/*
+		 * Primero: En java existen dos tipoas de datos, los tipos de datos primitivos
+		 * cuyo nombre es todo minúsculas, como por ejemplo int, long, byte, short,
+		 * boolean, double, float... y por otra parte NO TIENEN propiedades ni metodos
+		 * ¿Como lo sabemos? Porque le aplicamos el operador (.) a continuacion y no se
+		 * muestra nada
+		 */
+
+		int e = 20;
+
+		/*
+		 * Segundo: Existen los tipos de datos no primitivos, que son aquellos cuyo
+		 * nombre comienza con mayuscula, como por ejemplo String, BigDecimal, Manzana,
+		 * etc. Estos tipos de datos no primitivos SI TIENEN propiedades y metodos
+		 */
+
+		Integer e2 = 200;
+
+		/* Existe una excepcion y es que el tipo datos String no tiene primitivo */
+
+		// Tamaño fijo
+		String[] nombres3 = { "Elida", "Jakelin", "Miguel", "Juan Carlos" };
+
+		// Tamaño variable
+		String[] nombres4 = new String[100];
+
+		/*
+		 * Recorrer el array de nombres3 y mostrar solamente los nombres que tengan mas
+		 * de 5 caracteres
+		 */
+
+		for (String nombre : nombres3) {
+			if (nombre.length() > 5) {
+				System.out.println(nombre);
+			}
+		}
+
+		/*
+		 * Tercero: Existen las sentencias de asignacion compuestas, que son aquellas
+		 * que permiten modificar el valor de una variable utilizando un operador de
+		 * asignacion compuesto, como por ejemplo +=, -=, *=, /=, %=, etc.
+		 */
+
+		/*
+		 * MUY IMPORTANTE: Siempre que sea posible las variables se deben declarar de un
+		 * tipo de datos primitivo, porque de esta manera el lenguaje no tiene que hacer
+		 * ninguna conversacion implicita o explicita
+		 * 
+		 * El tipo de datos objeto, la contraparte del primitivo, realmente NO EXISTE,
+		 * el tipo objeto es un envoltorio del tipo primitivo
+		 */
+
+		byte v1 = 20;
+		short v2 = 30;
+
+		// v2 = (short) (v2 + v1);
+
+		v2 += v1; // v2 = v2 + v1
+
+		/*
+		 * Lo anterior es un ejemplo de la potencia de las sentencias de asignacion
+		 * compuestas De no utilizar una sentencia de asignacion compuesta en el ejemplo
+		 * anterior tendriamos que terminar haciendo un type casting (casteo) que
+		 * significa obligar a convertir a un tipo de datos concreto, que debe evitarse
+		 * en la medida de lo posible
+		 * 
+		 * Concretamente en la operación anterior, los operandos v1 y v2 se convierten
+		 * al tipo int y el resultado se obtiene como un entero tambien y no se puede
+		 * almacenar en la variable v2 al no ser que se realice un casteo a short
+		 * 
+		 * Todo lo anterior lo realiza la sentencia de asignacion compuesta
+		 */
+
+		/*
+		 * Conceptos de contador y acumulador, implementados a través del uso de las
+		 * sentencias de asignacion compuestas
+		 * 
+		 * A modo de ejemplo 1: vamos a recorrer el array de manzanas y calcular el peso
+		 * promedio de todas las manzanas
+		 * 
+		 * A modo de ejemplo 2: recorrer el array de manzanas y mostrar solamente las
+		 * manzanas cuyo peso sea superior al promedio, sea de color verde y de sabor
+		 * dulce y de tamaño mayor de cinco
+		 */
+
+		/* Solucion al ejemplo 1 */
+
+		// Contador para llevar la cuenta del total de manzanas a las cuales le hemos
+		// leido el peso,
+		// para luego poder calcular el promedio
+		int counter = 0;
+		// Acumulador para ir sumando el peso de cada manzana, para luego poder calcular
+		// el promedio
+		double acumuladorPeso = 0.0; // Sumatoria del peso de las manzanas
+		// Sentencia for mejorada porque no se pide nada del índice del array de
+		// manzanas
+		System.out.println("----- Ejemplo 1 -----");
+
+		for (Manzana m : manzanas) {
+			counter++; // counter = counter + 1
+
+			// acumuladorPeso = acumuladorPeso + m.getPeso();
+			acumuladorPeso += m.getPeso();
+		}
+
+		// fuera del bucle for se calcula el promedio
+
+		double pesoPromedio = acumuladorPeso / counter;
+		// Imprimir el resultado del peso promedio de las manzanas por la consola
+		System.out.println("El peso promedio de las manzanas es: " + pesoPromedio);
+
+		/*
+		 * Solucion al ejemplo 2, utilizacion del operador logico relacional && que en
+		 * otros lenguajes de programacion seria el operador AND e implica que tienen
+		 * que ser verdaderas las condiciones a la izquierda y a la derecha del operador
+		 * para que la condicion completa, al evaluar la expresion sea verdadera Se le
+		 * llama tambien al operador && de cortocircuito porque la primera condicion que
+		 * encuentre que es falsa ya no continua evaluando las restantes
+		 */
+
+		System.out.println("----- Ejemplo 2 -----");
+
+		for (Manzana man : manzanas) {
+			if (man.getPeso() > pesoPromedio && man.getColor().equals("Verde") && man.getSabor().equals("Dulce")
+					&& man.getSize() > 5) {
+				System.out.println("El numero de manzanas que cumplen la condicion es: " + man);
+			}
+
 	}
+		/* Demostracion de que el operador logico && es de corto-circuito */
+
+		BigDecimal precio = new BigDecimal(0.80);
+
+		System.out.println("Precio original: " + precio);
+
+		for (Manzana man : manzanas) {
+
+			if (man.getPeso() > pesoPromedio && man.getColor().equals("Verde") && man.getSize() > 7
+				&& man.getPrecio().equals(precio = new BigDecimal(2.00)) && man.getSabor().equals("Dulce"))
+				System.out.println(man.toString());
+			}
+
+			System.out.println("Precio modificado ???? " + precio);
+		}
 }
