@@ -506,5 +506,56 @@ public class App {
 				System.out.println("La manzana que cumple la condicion es: " + manza);
 			}
 		}
+
+		/*
+		 * Ahora viene la sentencia Switch case
+		 * 
+		 * Es una variante de la sentencia IF - ELSE, preferible cuando una sentencia if
+		 * - else hay que evaluar mas de 3 o 4 condiciones, porque el codigo se hace
+		 * dificil de mantener y poco legible
+		 */
+
+		/*
+		 * A modo de ejemplo vamos a crear un enumerable con los dias de la semana y
+		 * mostrar un mensaje en dependencia del dia de la semana que se trate
+		 * 
+		 * Se propone crear un metodo a nivel de la clase APP que recibe un tipo enum y
+		 * devuelva un tipo String con el mensaje segun el dia de la semana en cuestion
+		 */
+
+		/*
+		 * Solucion: 
+		 * Primero: con una sentencia IF-ELSE en el cuerpo del metodo 
+		 * Segundo: con una sentencia SWITCH CASE en el cuerpo del metodo
+		 */
+		
+		//Invocacion o llamada del metodo infoDiaSemana con parametro correspondiente al
+		//viernes
+
+		System.out.println(infoDiaSemana(DiaSemana.VIERNES));
+		
+	}
+
+	static String infoDiaSemana(DiaSemana diaSemana) {
+
+		String resultado = null;
+
+		if (diaSemana.equals(DiaSemana.LUNES))
+			resultado = "Primer dia de la semana, a trabajar";
+		else if (diaSemana.equals(DiaSemana.MARTES))
+			resultado = "Hemos pasado el lunes";
+		else if (diaSemana.equals(DiaSemana.MIERCOLES))
+			resultado = "Nos acercamos al fin de semana";
+		else if (diaSemana.equals(DiaSemana.JUEVES))
+			resultado = "Es juernes, los nuevos viernes, a disfrutar!!!";
+		else if(diaSemana.equals(DiaSemana.VIERNES))
+			resultado = "Es viernes y el cuerpo lo sabe";
+		else if (diaSemana.equals(DiaSemana.SABADO) || diaSemana.equals(DiaSemana.DOMINGO))
+			resultado = "Es fin de semana";
+		else
+			resultado = "El dia recibido no existe";
+
+		return resultado;
+
 	}
 }
