@@ -421,7 +421,7 @@ public class App {
 				System.out.println("El numero de manzanas que cumplen la condicion es: " + man);
 			}
 
-	}
+		}
 		/* Demostracion de que el operador logico && es de corto-circuito */
 
 		BigDecimal precio = new BigDecimal(0.80);
@@ -431,56 +431,80 @@ public class App {
 		for (Manzana man : manzanas) {
 
 			if (man.getPeso() > pesoPromedio && man.getColor().equals("Verde") && man.getSize() > 7
-				&& man.getPrecio().equals(precio = new BigDecimal(2.00)) && man.getSabor().equals("Dulce"))
+					&& man.getPrecio().equals(precio = new BigDecimal(2.00)) && man.getSabor().equals("Dulce"))
 				System.out.println(man.toString());
-			}
-
-			System.out.println("Precio modificado ???? " + precio);
-			
-			/* OPERADOR LOGICO OR (||). Este operador dará como resultado verdadero, si 
-			* al menos una de las condiciones que se evaluan en la expresion es verdadera.
-			* 
-			* A direncia del OPERADOR AND (&&), el operador OR no es de corto-circuito, es
-			* decir, que si una expresion no se cumple siempre va a evaluar las siguientes */
-			
-			// A continuacion, un ejemplo sencillo para demostrar el funcionamiento del operador OR (||)
-			
-			boolean t1 = false;
-			boolean t2 = false;
-			boolean t3 = true;
-			
-			if (t1 || t2 || t3 ) {
-				System.out.println("La expresion es verdadera");
-			} else {
-				System.out.println("La expresion es falsa");
-			}
-			
-			/*Operador de negacion NOT (!) 
-			 * 
-			 * A modo de ejemplo: ¿Que sucederia si se niega la variable t3, en la condicion de la
-			 * sentencia if anterior?*/
-			
-			if (t1 || t2 || !t3 ) {
-				System.out.println("La expresion es verdadera");
-			} else {
-				System.out.println("La expresion es falsa");
-			}
-			
-			/* En la misma expresion se pueden tener operadores OR (||) y AND (&&) */
-			
-			if (!t1 && t2 && !t3 || !t1 ) {
-				System.out.println("La expresion es verdadera");
-			} else {
-				System.out.println("La expresion es falsa");
-			}
-			
-			/* Ejercicio 1 del lunes 1 de Junio:
-			 * 
-			 * Respecto al array de manzana, recorrerlo con una sentencia for mejorada y mostrar por la
-			 * consola la manzana que incluyan en el nombre de la variedad la palabra Delicious, y ademas
-			 * sean de color Rojo, o que tengan un precio inferior o igual al precio promedio*/
-			
-			
-			
 		}
+
+		System.out.println("Precio modificado ???? " + precio);
+
+		/*
+		 * OPERADOR LOGICO OR (||). Este operador dará como resultado verdadero, si al
+		 * menos una de las condiciones que se evaluan en la expresion es verdadera.
+		 * 
+		 * A direncia del OPERADOR AND (&&), el operador OR no es de corto-circuito, es
+		 * decir, que si una expresion no se cumple siempre va a evaluar las siguientes
+		 */
+
+		// A continuacion, un ejemplo sencillo para demostrar el funcionamiento del
+		// operador OR (||)
+
+		boolean t1 = false;
+		boolean t2 = false;
+		boolean t3 = true;
+
+		if (t1 || t2 || t3) {
+			System.out.println("La expresion es verdadera");
+		} else {
+			System.out.println("La expresion es falsa");
+		}
+
+		/*
+		 * Operador de negacion NOT (!)
+		 * 
+		 * A modo de ejemplo: ¿Que sucederia si se niega la variable t3, en la condicion
+		 * de la sentencia if anterior?
+		 */
+
+		if (t1 || t2 || !t3) {
+			System.out.println("La expresion es verdadera");
+		} else {
+			System.out.println("La expresion es falsa");
+		}
+
+		/* En la misma expresion se pueden tener operadores OR (||) y AND (&&) */
+
+		if (!t1 && t2 && !t3 || !t1) {
+			System.out.println("La expresion es verdadera");
+		} else {
+			System.out.println("La expresion es falsa");
+		}
+
+		/*
+		 * Ejercicio 1 del lunes 1 de Junio:
+		 * 
+		 * Respecto al array de manzana, recorrerlo con una sentencia for mejorada y
+		 * mostrar por la consola la manzana que incluyan en el nombre de la variedad la
+		 * palabra Delicious, y ademas sean de color Rojo, o que tengan un precio
+		 * inferior o igual al precio promedio
+		 */
+
+		System.out.println("----- Ejercicio 1 del lunes 1 de Junio -----");
+
+		int counter2 = 0;
+		double acumuPrecio = 0.0;
+
+		for (Manzana man2 : manzanas) {
+			counter2++;
+			acumuPrecio += man2.getPrecio().doubleValue();
+		}
+		double precioPromedio = acumuPrecio / counter2;
+		System.out.println("El precio promedio de las manzanas es: " + precioPromedio);
+
+		for (Manzana manza : manzanas) {
+			if (manza.getVariedad().contains("Delicious") && manza.getColor().equals("Roja")
+					|| manza.getPrecio().doubleValue() <= precioPromedio) {
+				System.out.println("La manzana que cumple la condicion es: " + manza);
+			}
+		}
+	}
 }
