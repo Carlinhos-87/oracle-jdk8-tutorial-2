@@ -536,7 +536,7 @@ public class App {
 
 		// System.out.println(infoDiaSemana(DiaSemana.VIERNES));
 
-		System.out.println(new App().infoDiaSemana(DiaSemana.VIERNES));
+		System.out.println(new App().infoDiaSemana(DiaSemana.SABADO));
 	}
 
 	/*
@@ -547,20 +547,25 @@ public class App {
 
 	String infoDiaSemana(DiaSemana diaSemana) {
 
-		if (diaSemana.equals(DiaSemana.LUNES))
-			return "Primer dia de la semana, a trabajar";
-		else if (diaSemana.equals(DiaSemana.MARTES))
-			return "Hemos pasado el lunes";
-		else if (diaSemana.equals(DiaSemana.MIERCOLES))
-			return "Nos acercamos al fin de semana";
-		else if (diaSemana.equals(DiaSemana.JUEVES))
-			return "Es juernes, los nuevos viernes, a disfrutar!!!";
-		else if (diaSemana.equals(DiaSemana.VIERNES))
-			return "Es viernes y el cuerpo lo sabe";
-		else if (diaSemana.equals(DiaSemana.SABADO) || diaSemana.equals(DiaSemana.DOMINGO))
-			return "Es fin de semana";
-		else
-			return "El dia recibido no existe";
+		// Utilizando sentencia switch - case 
+		// para evaluar el valor del parametro diaSemana y devolver un mensaje
+		
+		switch (diaSemana) {
+		case LUNES : return "Primer dia de la semana, a trabajar";
+			
+		case MARTES : return "Hemos pasado el lunes";
+			
+		case MIERCOLES : return "Nos acercamos al fin de semana";
+			
+		case JUEVES : return "Es juernes, los nuevos viernes, a disfrutar!!!";
+			
+		case VIERNES : return "Es viernes y el cuerpo lo sabe";
+			
+		case SABADO : 
+		case DOMINGO: return "Es fin de semana";
+			
+		default : return "El dia recibido no existe";
+		}	
 
 	}
 
