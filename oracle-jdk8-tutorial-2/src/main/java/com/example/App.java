@@ -524,19 +524,28 @@ public class App {
 		 */
 
 		/*
-		 * Solucion: 
-		 * Primero: con una sentencia IF-ELSE en el cuerpo del metodo 
-		 * Segundo: con una sentencia SWITCH CASE en el cuerpo del metodo
+		 * Solucion: Primero: con una sentencia IF-ELSE en el cuerpo del metodo Segundo:
+		 * con una sentencia SWITCH CASE en el cuerpo del metodo
 		 */
-		
-		//Invocacion o llamada del metodo infoDiaSemana con parametro correspondiente al
-		//viernes
 
-		System.out.println(infoDiaSemana(DiaSemana.VIERNES));
-		
+		// Invocacion o llamada del metodo infoDiaSemana con parametro correspondiente
+		// al viernes
+
+		// Invocar el metodo infoDiaSemana al cual le hemos quitado el modificador
+		// static
+
+		// System.out.println(infoDiaSemana(DiaSemana.VIERNES));
+
+		System.out.println(new App().infoDiaSemana(DiaSemana.VIERNES));
 	}
 
-	static String infoDiaSemana(DiaSemana diaSemana) {
+	/*
+	 * Metodo de instancia, es decir, sin el modificador static, que recibe un tipo
+	 * enum y devuelve un String, se necesita una instancia (objeto) de la clase App
+	 * para poder invocar el metodo infoDiaSemana, porque es un metodo de instancia
+	 */
+
+	String infoDiaSemana(DiaSemana diaSemana) {
 
 		String resultado = null;
 
@@ -548,7 +557,7 @@ public class App {
 			resultado = "Nos acercamos al fin de semana";
 		else if (diaSemana.equals(DiaSemana.JUEVES))
 			resultado = "Es juernes, los nuevos viernes, a disfrutar!!!";
-		else if(diaSemana.equals(DiaSemana.VIERNES))
+		else if (diaSemana.equals(DiaSemana.VIERNES))
 			resultado = "Es viernes y el cuerpo lo sabe";
 		else if (diaSemana.equals(DiaSemana.SABADO) || diaSemana.equals(DiaSemana.DOMINGO))
 			resultado = "Es fin de semana";
