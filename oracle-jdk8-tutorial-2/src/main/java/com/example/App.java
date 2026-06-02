@@ -536,7 +536,7 @@ public class App {
 
 		// System.out.println(infoDiaSemana(DiaSemana.VIERNES));
 
-		System.out.println(new App().infoDiaSemana(DiaSemana.SABADO));
+		infoDiaSemana(DiaSemana.SABADO);
 	}
 
 	/*
@@ -545,27 +545,39 @@ public class App {
 	 * para poder invocar el metodo infoDiaSemana, porque es un metodo de instancia
 	 */
 
-	String infoDiaSemana(DiaSemana diaSemana) {
+	static void infoDiaSemana(DiaSemana diaSemana) {
 
-		// Utilizando sentencia switch - case 
+		// Utilizando sentencia switch - case
 		// para evaluar el valor del parametro diaSemana y devolver un mensaje
-		
+
 		switch (diaSemana) {
-		case LUNES : return "Primer dia de la semana, a trabajar";
-			
-		case MARTES : return "Hemos pasado el lunes";
-			
-		case MIERCOLES : return "Nos acercamos al fin de semana";
-			
-		case JUEVES : return "Es juernes, los nuevos viernes, a disfrutar!!!";
-			
-		case VIERNES : return "Es viernes y el cuerpo lo sabe";
-			
-		case SABADO : 
-		case DOMINGO: return "Es fin de semana";
-			
-		default : return "El dia recibido no existe";
-		}	
+		case LUNES:
+			System.out.println("Primer dia de la semana, a trabajar");
+			break;
+		case MARTES:
+			System.out.println("Hemos pasado el lunes");
+			break;
+
+		case MIERCOLES:
+			System.out.println("Nos acercamos al fin de semana");
+			break;
+
+		case JUEVES:
+			System.out.println("Es juernes, los nuevos viernes, a disfrutar!!!");
+			break;
+
+		case VIERNES:
+			System.out.println("Es viernes y el cuerpo lo sabe");
+			break;
+
+		case SABADO:
+		case DOMINGO:
+			System.out.println("Es fin de semana");
+			break;
+
+		default:
+			System.out.println("El dia recibido no existe");
+		}
 
 	}
 
