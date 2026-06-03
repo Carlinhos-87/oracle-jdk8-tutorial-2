@@ -608,6 +608,7 @@ public class App {
 				manzana.setPrecio(nuevoPrecio);
 				manzanas10PorCientoPrecioMayor[indice++] = manzana;
 			}
+
 		}
 
 		// Imprimir el array de manzana resultante
@@ -617,6 +618,8 @@ public class App {
 			if (m != null)
 				System.out.println(m);
 
+		/* Sentencia WHILE */
+		
 	}
 
 	/*
