@@ -5,7 +5,7 @@ package com.example;
 public class AppApuntes {
 	public static void main(String[] args) {
 	
-		infoDiaSemana3(DiaSemana.SABADO);
+		infoDiaSemana3(DiaSemana.MIERCOLES);
 	}	
 	
 	static void infoDiaSemana3(DiaSemana diaSemana) {
@@ -41,11 +41,12 @@ public class AppApuntes {
 		}
 	}
 	public static void main2(String[] args) {
-	
+			
+			System.out.println(new App().infoDiaSemana4(DiaSemana.SABADO));
+		}	
 		
-		System.out.println(new App().infoDiaSemana(DiaSemana.VIERNES));
-	
-		
+		String infoDiaSemana4(DiaSemana diaSemana) {
+
 		switch (diaSemana) {
 
 	case LUNES:
@@ -74,27 +75,27 @@ public class AppApuntes {
 		
 	public static void main3(String[] args) {
 		
-		System.out.println(infoDiaSemana(DiaSemana.VIERNES));
+		System.out.println(infoDiaSemana5(DiaSemana.VIERNES));
 	}
-		 	static String infoDiaSemana(DiaSemana diaSemana) {
+		 static String infoDiaSemana5(DiaSemana diaSemana) {
 
 			String resultado = null;
 
 			if (diaSemana.equals(DiaSemana.LUNES)) 
-			resultado = "Primer dia de la semana, a trabajar";
+				resultado = "Primer dia de la semana, a trabajar";
 			else if(diaSemana.equals(DiaSemana.MARTES))
-			resultado = "Hemos pasado el lunes";
+				resultado = "Hemos pasado el lunes";
 			else if(diaSemana.equals(DiaSemana.MIERCOLES))
-			resultado = "Nos acercamos al fin de semana";
+				resultado = "Nos acercamos al fin de semana";
 			else if(diaSemana.equals(DiaSemana.JUEVES))
-			resultado = "Es juernes, los nuevos viernes, a disfrutar!!!";
+				resultado = "Es juernes, los nuevos viernes, a disfrutar!!!";
 			else if(diaSemana.equals(DiaSemana.VIERNES))
-			resultado = "Es viernes y el cuerpo lo sabe";
+				resultado = "Es viernes y el cuerpo lo sabe";
 			else if(diaSemana.equals(DiaSemana.SABADO) || 
 			diaSemana.equals(DiaSemana.DOMINGO))
-			resultado = "Es fin de semana";
+				resultado = "Es fin de semana";
 			else 
-			resultado = "El dia recibido no existe";
+				resultado = "El dia recibido no existe";
 
 			return resultado;
 			}

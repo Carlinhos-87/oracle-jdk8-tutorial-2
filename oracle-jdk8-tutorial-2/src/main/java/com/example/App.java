@@ -537,6 +537,86 @@ public class App {
 		// System.out.println(infoDiaSemana(DiaSemana.VIERNES));
 
 		infoDiaSemana(DiaSemana.SABADO);
+
+		/*
+		 * OPERADOR TERNARIO
+		 * 
+		 * Trabaja con tres operandos, por lo cual se le llama ternario, que quiere
+		 * decir tres partes. Y en muchas ocasiones es la una alternativa posible cuando
+		 * hay que evaluar uno o varias condiciones y devolver un resultado
+		 * 
+		 * En su forma simple de su sintaxis es sencillo, pero cuando se anida entonces
+		 * es un poco mas complejo
+		 */
+
+		/* Sintaxis del operador ternario con un ejemplo sencillo */
+
+		int j = 4;
+		int k = 5;
+		String result = null;
+
+		/*
+		 * El operador ternario evalua una expresion que tiene que dar como resultado un
+		 * valor lógico, verdadero o falso. Si la evvaluacion de la expresion es
+		 * verdadera se retorna lo que esta a continuacion del signo de interrogacion
+		 * invertido, de lo contrario se retorna lo que esta a continuacion de los dos
+		 * puntos
+		 */
+
+		result = k > j ? "Si, k es mayor que j" : "No, k no es mayor que j";
+
+		System.out.println("Resultado del operador ternario de los valores de: " + " k = " + k + " y j = " + j
+				+ ", es: " + result);
+
+		/*
+		 * Cuando la expresion logica que hay que evaluar es un poco compleja, se
+		 * permite utilizar parentesis, para dar claridad a la solucion, pero no es que
+		 * sea necesario.
+		 */
+
+		/*
+		 * Ejercicio # 1 del martes 2 de junio. Recorrer el array de manzanas y para las
+		 * manzanas cuyo tamaño (size) esté entre 5 y 7 incrementar su precio en un 10 %
+		 * y las que no disminuir su precio en un 3%, agregar a un nuevo array las
+		 * manzanas cuyo precio ha sido incrementado en un 10%
+		 */
+
+		// Nuevo array de manzanas que contendra las manzanas cuyo precio se ha
+		// incrementado
+		// en un 10%
+		Manzana[] manzanas10PorCientoPrecioMayor = new Manzana[20];
+
+		int indice = 0;
+
+		for (Manzana manzana : manzanas) {
+			// Utilizando un operador ternario
+			double actualSize = manzana.getSize();
+			double precioActual = manzana.getPrecio().doubleValue();
+
+			BigDecimal nuevoPrecio = (actualSize >= 5 && actualSize <= 7)
+					// incrementar el precio en un 10%
+					? new BigDecimal(precioActual * 1.1)
+					// Disminuir el precio en un 3%
+					: new BigDecimal(precioActual * 0.97);
+
+			// La manzana tiene que ser agregada el nuevo array, si su precio es
+			// inferior al nuevoPrecio
+
+			if (precioActual < nuevoPrecio.doubleValue()) {
+
+				// Actualizo la manzana con su nuevo precio
+				manzana.setPrecio(nuevoPrecio);
+				manzanas10PorCientoPrecioMayor[indice++] = manzana;
+			}
+		}
+
+		// Imprimir el array de manzana resultante
+		System.out.println("Array de manzanas resultante: ");
+
+		for (Manzana m : manzanas10PorCientoPrecioMayor)
+			if (m != null)
+				System.out.println(m);
+
 	}
 
 	/*
